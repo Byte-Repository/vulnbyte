@@ -93,7 +93,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'vulnbyte',
-        'USER': 'postgres',
+        'USER': 'postgres1',
         'PASSWORD': '@FINALPROJECT',
         'HOST': 'localhost',  # or 'db' if using docker-compose
         'PORT': '5432',
