@@ -1,0 +1,67 @@
+{% extends 'base_auth.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row justify-content-center" style="margin-top: -50px;">
+  <div class="col-md-3">
+    <div class="card card-custom-background">
+      <div class="card-body">
+        <!-- VulnByte Title -->
+        <h1 
+          class="card-title text-center py-4" 
+          style="color: #6a5acd; font-size: 2rem; font-weight: bold;margin-bottom: -5px;">
+          VulnByte
+        </h1>
+
+        <!-- Login Subtitle -->
+        <h4 
+          class="card-title text-center py-1 text-muted" 
+          style="font-size: 1rem; margin-bottom: 35px;">
+          Login to Your Account
+        </h4>
+
+        <form action="{% url 'login' %}" method="post">
+          {% csrf_token %}
+
+          {% include 'partials/_messages.html' %}
+
+          <!-- Username Field -->
+          <div class="form-group mb-3 row justify-content-center">
+            <div class="col-md-15">
+              <input 
+                type="text" 
+                name="username" 
+                id="usernameField" 
+                placeholder="Username" 
+                value="{{ fieldValues.username }}" 
+                class="form-control form-control-sm" 
+              />
+            </div>
+          </div>
+
+          <!-- Password Field -->
+          <div class="form-group mb-3 row justify-content-center">
+            <div class="col-md-15">
+              <input 
+                type="password" 
+                name="password" 
+                id="passwordField" 
+                placeholder="Password" 
+                class="form-control form-control-sm" 
+              />
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-block btn-primary submit-btn">
+            Login
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Custom JS -->
+<script src="{% static 'js/register.js' %}"></script>
+{% endblock content %}
