@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 import sys
 from pathlib import Path
 from django.contrib import messages
+import dj_database_url
 
 import os
 from dotenv import load_dotenv
@@ -89,6 +90,7 @@ WSGI_APPLICATION = 'vulnconsole.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -99,6 +101,8 @@ DATABASES = {
         'PORT': '5432',
     }
 }
+
+DATABASES["default"] = dj_database_url.parse("postgresql://postgres1:Mefj2k9MWKXHnIWiGOrYsMPROMpIJb7e@dpg-ctlj4152ng1s73b7f4fg-a.oregon-postgres.render.com/vulnbyte")
 
 # DATABASES = {
 #     'default': {
