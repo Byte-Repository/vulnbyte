@@ -32,11 +32,13 @@ SECRET_KEY = 'django-insecure-cvb)#jt)^00sj)q8-m9=3llp9qh4=++==g0s=v+s@s!bhl3!vc
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = os.environ.get("DEBUG", "False").lower() =="true"
-DEBUG = True
+DEBUG = False
 
 # ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
-ALLOWED_HOSTS = ['vulnbyte.onrender.com']
+# ALLOWED_HOSTS = ['vulnbyte.onrender.com']
+
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -148,11 +150,15 @@ USE_I18N = True
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.1/howto/static-files/
+STATIC_URL = '/static/'
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [BASE_DIR / "static",]
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# Specify the path where static files will be collected
+STATIC_ROOT = BASE_DIR / "staticfiles"  # Collect static files here
+
+# Directories where Django will look for static files during development
+STATICFILES_DIRS = [
+    BASE_DIR / "static",  # Local static files (for development)
+]
 
 MESSAGE_TAGS = {
     messages.ERROR: 'danger'
