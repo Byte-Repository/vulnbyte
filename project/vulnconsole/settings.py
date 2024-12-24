@@ -172,7 +172,17 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # Gmail's SMTP server
+EMAIL_PORT = 587  # Port for sending emails (typically 587)
+EMAIL_USE_TLS = True  # Use TLS for security
+
+# Use environment variables for Gmail credentials
+EMAIL_HOST_USER = os.environ.get('GMAIL_USER')  # Your Gmail email address
+EMAIL_HOST_PASSWORD = os.environ.get('GMAIL_PASSWORD')  # Your Gmail app password
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER  # Using your Gmail as the default sender
+
 
 # Configuration of output log messages to the console
 if (len(sys.argv) >= 2 and sys.argv[1] == 'runserver'):
